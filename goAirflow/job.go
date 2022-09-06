@@ -99,7 +99,7 @@ func (j *Job) SetDownstream(ind, dep *Task) *Job {
 
 func (j *Job) run() error {
 	if !j.Dag.validate() {
-		return fmt.Errorf("Invalid Dag for job %s", j.Name)
+		return fmt.Errorf("invalid Dag for job %s", j.Name)
 	}
 
 	log.Printf("starting job %v", j.Name)
@@ -218,13 +218,6 @@ func (j *Job) anyFailed() bool {
 		return out
 	})
 	return out
-}
-
-
-// A Job is a workflow consisting of independent and dependent tasks
-// organized into a graph.
-type Tt struct {
-
 }
 
 func Complexunction() *Job {

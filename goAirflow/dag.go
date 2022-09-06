@@ -123,12 +123,3 @@ func (d dag) independentNodes() []string {
 	return ind
 
 }
-
-
-var G = dag{
-	"0": []string{"1", "2"},
-	"1": []string{"2"},
-	"2": []string{},
-}
-
-var H = G.validate()

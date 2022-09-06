@@ -9,46 +9,6 @@ import (
 	// "github.com/robfig/cron/v3"
 )
 
-type BaseFunction struct {}
-
-func (f BaseFunction) Test() (string, error){
-	fmt.Println("hk")
-	time.Sleep(time.Second * 3)
-	return "ok", nil
-}
-
-func (f BaseFunction) Test2() (string, error){
-	fmt.Println("hk2")
-	time.Sleep(time.Second * 6)
-	return "ok", nil
-}
-
-var k = goairflow.BaseFunction{}
-
-
-func complexFunction() *goairflow.Job {
-	j := &goairflow.Job{
-		Name: "test",
-		Schedule: "* * * * *",
-	}
-
-	j.Add(&goairflow.Task{
-			BaseFunction: k,
-			FunctionName: "Test",
-			Name: "haha",
-	})
-
-	j.Add(&goairflow.Task{
-		BaseFunction: k,
-		FunctionName: "Test2",
-		Name: "haha2",
-	})
-
-	j.SetDownstream(j.Task("haha"), j.Task("haha2"))
-	return j
-	
-}
-
 func main() {
 
 	// s := complexFunction()
@@ -68,6 +28,7 @@ func main() {
 	// if f.IsNil() {
 	// 	fmt.Print(f.String())
 	// }
+	fmt.Print("Let's wait")
 	time.Sleep(time.Second * 10)
 	// for {
 	// 	count := 0
