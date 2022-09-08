@@ -5,7 +5,7 @@ import (
 	// "go-dag-scheduler/dag"
 	"go-dag-scheduler/goairflow"
 	// "reflect"
-	"time"
+	// "time"
 	// "github.com/robfig/cron/v3"
 )
 
@@ -28,8 +28,7 @@ func main() {
 	// if f.IsNil() {
 	// 	fmt.Print(f.String())
 	// }
-	fmt.Print("Let's wait")
-	time.Sleep(time.Second * 10)
+	fmt.Print("finished")
 	// for {
 	// 	count := 0
 	// 	entryID, _ := c.AddFunc("@every 1s", func() {

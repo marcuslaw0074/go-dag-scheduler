@@ -18,3 +18,9 @@ func (f BaseFunction) Test2() (string, error){
 	time.Sleep(time.Second * 6)
 	return "ok", nil
 }
+
+func (f BaseFunction) Test3() (string, error){
+	fmt.Println("hk3")
+	time.Sleep(time.Second * 1)
+	return "ok", nil
+}

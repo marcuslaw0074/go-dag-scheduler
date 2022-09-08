@@ -240,7 +240,14 @@ func Complexunction() *Job {
 		Name: "haha2",
 	})
 
+	j.Add(&Task{
+		BaseFunction: k,
+		FunctionName: "Test3",
+		Name: "haha3",
+	})
+
 	j.SetDownstream(j.Task("haha"), j.Task("haha2"))
+	j.SetDownstream(j.Task("haha3"), j.Task("haha2"))
 	j.run()
 	return j
 	
