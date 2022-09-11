@@ -2,6 +2,7 @@ package goairflow
 
 import (
 	"errors"
+	"fmt"
 	"log"
 	"math"
 	"reflect"
@@ -57,7 +58,8 @@ func (t *Task) run(writes chan writeOp) error {
 	log.Printf(logMsg, t.Name, successful, t.attemptsRemaining, res)
 	write := writeOp{t.Name, successful, make(chan bool)}
 	writes <- write
-	<-write.resp
+	mes := <-write.resp
+	fmt.Printf("%v", mes)
 	return nil
 }
 

@@ -4,8 +4,10 @@ import (
 	"fmt"
 	// "go-dag-scheduler/dag"
 	"go-dag-scheduler/goairflow"
+
+	"github.com/robfig/cron/v3"
 	// "reflect"
-	// "time"
+	"time"
 	// "github.com/robfig/cron/v3"
 )
 
@@ -13,13 +15,17 @@ func main() {
 
 	// s := complexFunction()
 	// fmt.Println(s)
-	goairflow.Complexunction()
+	// goairflow.Complexunction()
 
 	// fmt.Println(dag.H)
 	// ls := make([]cron.EntryID, 0)
 	// fmt.Println(ls)
-	// c := cron.New()
-	// c.Start()
+	c := cron.New()
+	c.Start()
+	c.AddFunc("@every 1s", func() {
+		goairflow.Complexunction()
+		// time.Sleep(time.Second*1)
+	})
 	// res := reflect.ValueOf(k).MethodByName("Test")
 	// ress := res.Call(nil)
 	// resss := ress[0]
@@ -28,6 +34,7 @@ func main() {
 	// if f.IsNil() {
 	// 	fmt.Print(f.String())
 	// }
+	time.Sleep(time.Second*100)
 	fmt.Print("finished")
 	// for {
 	// 	count := 0

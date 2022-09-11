@@ -26,7 +26,6 @@ type Goflow struct {
 type Options struct {
 	DBType        string
 	BoltDBPath    string
-	AssetBasePath string
 	StreamJobRuns bool
 	ShowExamples  bool
 }
@@ -189,16 +188,8 @@ func (g *Goflow) getJobRuns(clientDisconnect bool) func(*gin.Context) {
 	}
 }
 
-func (g *Goflow) addStaticRoutes() *Goflow {
-	g.router.Static("/css", g.Options.AssetBasePath+"css")
-	g.router.Static("/dist", g.Options.AssetBasePath+"dist")
-	g.router.Static("/src", g.Options.AssetBasePath+"src")
-	g.router.LoadHTMLGlob(g.Options.AssetBasePath + "html/*.html.tmpl")
-	return g
-}
 
 func (g *Goflow) addRoutes() *Goflow {
-	g.addStaticRoutes()
 
 	log.SetFlags(0)
 	// log.SetOutput(new(logWriter))

@@ -161,6 +161,7 @@ func (j *Job) run() error {
 		taskState.Store(write.key, write.val)
 
 		// Acknowledge the update
+		fmt.Println("Send true to task")
 		write.resp <- true
 
 		if j.allDone() {
